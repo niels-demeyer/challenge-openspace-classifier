@@ -1,4 +1,5 @@
 import pandas as pd
+import json
 
 def load_colleagues(filepath):
     """
@@ -18,3 +19,17 @@ def load_colleagues(filepath):
     for line in lines:
         colleagues.append(line.strip().split(','))
     return colleagues
+
+def load_json(filepath):
+    """
+    This function reads a JSON file and returns a dictionary.
+
+    Args:
+        filepath (str): The path to the JSON file.
+
+    Returns:
+        dict: A dictionary with the data from the JSON file.
+    """
+    with open(filepath, 'r') as file:
+        data = json.load(file)
+    return data

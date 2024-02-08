@@ -22,4 +22,3 @@ openspace.display()
 print(f"Total seats: {openspace.total_seats()}")
 print(f"Total people: {openspace.total_people()}")
 print(f"Remaining seats: {openspace.remaining_seats()}")
-

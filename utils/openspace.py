@@ -44,7 +44,6 @@ class Openspace:
             if table.has_free_spot():
                 table.assign_seat(name)
                 return
-        print("No free spot available.")
 
     def add_table(self, capacity):
         """
@@ -92,3 +91,14 @@ class Openspace:
             print(f"Table {i}:")
             for seat in table.seats:
                 print(f"  Seat: {'Free' if seat.free else seat.occupant}")
+    def print_system_message(self):
+        """
+        Prints a system message based on the number of seats and people.
+
+        """
+        if self.total_people() > self.total_seats():
+            print("More chairs needed!")
+        elif self.total_people() == self.total_seats():
+            print("Just right: There are enough seats for everyone.")
+        else:
+            print("There are more seats than people.")

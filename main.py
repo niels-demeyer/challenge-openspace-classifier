@@ -1,5 +1,6 @@
 import pandas as pd
 import random
+
 class Office:
     def __init__(self, tables=6, seats_per_table=4):
         self.tables = {i: [] for i in range(1, tables+1)}

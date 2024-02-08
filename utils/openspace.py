@@ -91,14 +91,16 @@ class Openspace:
             print(f"Table {i}:")
             for seat in table.seats:
                 print(f"  Seat: {'Free' if seat.free else seat.occupant}")
-    def print_system_message(self):
+    def check_capacity(self):
         """
-        Prints a system message based on the number of seats and people.
+        Checks the number of people and seats and prints a message accordingly.
+        """
+        total_people = self.total_people()
+        total_seats = self.total_seats()
 
-        """
-        if self.total_people() > self.total_seats():
-            print("More chairs needed!")
-        elif self.total_people() == self.total_seats():
-            print("Just right: There are enough seats for everyone.")
+        if total_people > total_seats:
+            print("Warning: There are more people than seats!")
+        elif total_people < total_seats:
+            print("Notice: There are more seats than people.")
         else:
-            print("There are more seats than people.")
+            print("Just right: There are enough seats for everyone.")

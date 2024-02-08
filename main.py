@@ -11,6 +11,7 @@ colleagues = load_colleagues('new_colleagues.txt')
 
 # Create an openspace and organize the colleagues
 openspace = Openspace(number_of_tables=config['number_of_tables'], table_capacity=config['table_capacity'])
+openspace.check_capacity()
 openspace.organize(colleagues)
 
 # Display the results
@@ -22,6 +23,3 @@ print(f"Total seats: {openspace.total_seats()}")
 print(f"Total people: {openspace.total_people()}")
 print(f"Remaining seats: {openspace.remaining_seats()}")
 
-openspace.print_system_message()
-
-    

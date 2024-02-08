@@ -27,18 +27,18 @@ Create an algorithm that randomly assign people to a spot in the openspace.
 
 ## The Mission
 
-Your company moved to a new office at the Gent Zuiderport. Its an openspace with 6 tables of 4 seats. 
+Your company moved to a new office at the Gent Zuiderport. Its an openspace with 6 tables of 4 seats.
 As many of you are new colleagues, you come up with the idea of changing seats everyday and get to know each other better by working side by side with your new colleagues.
 
-You will create a program that runs everyday to re-assign everybody to a new seat. 
+You will create a program that runs everyday to re-assign everybody to a new seat.
 
 ### Must-have features: MVP (Minimum Viable Product)
 
-You want to build a program that allows you to get a list of colleagues from an excel file and place them ***randomly*** on the different tables of the open space.
+You want to build a program that allows you to get a list of colleagues from an excel file and place them **_randomly_** on the different tables of the open space.
 
-#### Note: The default setup of the open space is 6 tables of 4 seats → 24 seats. ####
+#### Note: The default setup of the open space is 6 tables of 4 seats → 24 seats.
 
-- The program can take a filepath as an argument to load the list of colleagues. 
+- The program can take a filepath as an argument to load the list of colleagues.
 - The program distributes randomly the people on the existing tables and says how much seats are left.
 - The program can deal with the possibility of having to much people in the room.
 
@@ -50,13 +50,13 @@ Now you have a basic working program but you want to make it more interactive an
 - Make the program more dynamic and interactive by adding the possibilty to add someone in the room (a new colleague arriving or someone being late) and the possibilty to add a table if the room is full.
 - Improve the algorithm to avoid having someone alone at a table
 - Allow the possibility of which list (or black list) in the excel file → _X wants to be seated beside Y_ or _X doesn't want to be seated beside Y_
-- Allow the possibility to ask : 
+- Allow the possibility to ask :
   - how much seats are in the room
   - how much people are in the room
   - how much seats are left
 
-
 ### Constraints
+
 As you well know, having readable and clean code is a great added value to any project. Follow the best practices below:
 
 #### Imports
@@ -114,7 +114,6 @@ It goes without saying, but please, **read through all of this before starting.*
 
 Make sure that you understand the concept of OOP, as this project will make intensive use of it.
 
-
 _How to program a python project ?_
 Until now, you've mostly been working on `.ipynb` files, so called _Jupyter Notebooks_ or `IPython notebooks`.
 For a project like this, notebooks are really not a good idea. You'll notice the `.py` file extension in the coming files. These are **python** source files.
@@ -149,7 +148,7 @@ In the `utils` folder create 3 files:
 - `table.py`
 - `openspace.py`
 
-You're ready to go! 
+You're ready to go!
 
 #### 1. A table
 
@@ -164,10 +163,10 @@ Create a class called `Seat` with two attributes:
 - `free` which is a boolean.
 - `occupant` which is a string.
 
-and 2 functions : 
+and 2 functions :
 
 - `set_occupant(name)` which allows the program to assign someone a seat if it's free
-- `remove_occupant()` which  remove someone from a seat and return the name of the person occupying the seat before
+- `remove_occupant()` which remove someone from a seat and return the name of the person occupying the seat before
 
 ##### 1.2 Table
 
@@ -176,7 +175,8 @@ In the same file, create a class `Table` with ? attributes:
 - `capacity` which is an integer
 - `seats` which is a list of `Seat` objects (size = `capacity`)
 
-and 3 functions : 
+and 3 functions :
+
 - `has_free_spot()` that returns a boolean (True if a spot is available)
 - `assign_seat(name)` that places someone at the table
 - `left_capacity()` that returns an integer
@@ -185,7 +185,7 @@ and 3 functions :
 
 In `openspace.py` create a class `Openspace` that contains these attributes:
 
-- `tables` which is a list of `Table`. _(you will need to import `Table` from `table.py`)_. 
+- `tables` which is a list of `Table`. _(you will need to import `Table` from `table.py`)_.
 - `number_of_tables` which is an integer.
 
 And some methods:
@@ -218,21 +218,22 @@ In `main.py`:
 
 ## Evaluation criteria
 
-| Criteria       | Indicator                                                    | Yes/No |
-| -------------- | ------------------------------------------------------------ | ------ |
-| 1. Is complete | The student has realized all must-have features.             |        |
-|                | There is a published GitHub repo available.                  |        |
-|                | The program runs until the end without any error.               |        |
-|                | The program starts by running `python main.py` in the terminal. |        |
-| 2. Is correct  | The code is well typed.                                      |        |
-|                | There is a docstring for every function/method/class.        |        |
-|                | All the constraints are respected.                           |        |
-| 3. Is great    | There is an interaction with the user.                       |        |
-|                | The algorithm doesn't create table with alone people.                    |        |
-|                | The result is nicely displayed and can be saved in a file. |     |
-|                | The program has been developped has a team using proper git flow and management system
+| Criteria       | Indicator                                                                              | Yes/No |
+| -------------- | -------------------------------------------------------------------------------------- | ------ |
+| 1. Is complete | The student has realized all must-have features.                                       |        |
+|                | There is a published GitHub repo available.                                            |        |
+|                | The program runs until the end without any error.                                      |        |
+|                | The program starts by running `python main.py` in the terminal.                        |        |
+| 2. Is correct  | The code is well typed.                                                                |        |
+|                | There is a docstring for every function/method/class.                                  |        |
+|                | All the constraints are respected.                                                     |        |
+| 3. Is great    | There is an interaction with the user.                                                 |        |
+|                | The algorithm doesn't create table with alone people.                                  |        |
+|                | The result is nicely displayed and can be saved in a file.                             |        |
+|                | The program has been developped has a team using proper git flow and management system |
 
 ## Final note
+
 Voila! You have made your first porfolio project. Good job!
 
 ![You've got this!](https://media.giphy.com/media/BcCoMy2A0eYELrRZ6O/giphy.gif)

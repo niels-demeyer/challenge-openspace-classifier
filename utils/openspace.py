@@ -8,15 +8,11 @@ class Openspace:
 
     def organize(self, colleagues):
         random.shuffle(colleagues)
-        for name, whitelist, blacklist in colleagues:
+        for name in colleagues:
             for table in self.tables:
                 if table.has_free_spot():
-                    for seat in table.seats:
-                        if seat.free:
-                            seat.set_whitelist(whitelist)
-                            seat.set_blacklist(blacklist)
-                            seat.set_occupant(name)
-                            break
+                    table.assign_seat(name)
+                    break
 
     def add_colleague(self, name):
         for table in self.tables:

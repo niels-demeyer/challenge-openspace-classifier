@@ -7,7 +7,7 @@ with open('config.json', 'r') as file:
     config = json.load(file)
 
 # Load the colleagues from the excel file
-colleagues = load_colleagues('new_colleagues.xlsx')
+colleagues = load_colleagues('new_colleagues.txt')
 
 # Create an openspace and organize the colleagues
 openspace = Openspace(number_of_tables=config['number_of_tables'], table_capacity=config['table_capacity'])
@@ -16,20 +16,20 @@ openspace.organize(colleagues)
 # Display the results
 openspace.display()
 
-# Store the results
-openspace.store('results.xlsx')
+# # Store the results
+# openspace.store('results.xlsx')
 
-# Add a new colleague
-openspace.add_colleague('New Colleague')
+# # Add a new colleague
+# openspace.add_colleague('New Colleague')
 
-# Add a new table
-openspace.add_table(4)
+# # Add a new table
+# openspace.add_table(4)
 
-# Display the updated results
-openspace.display()
+# # Display the updated results
+# openspace.display()
 
-# Store the updated results
-openspace.store('updated_results.xlsx')
+# # Store the updated results
+# openspace.store('updated_results.xlsx')
 
 # Print the total number of seats, the total number of people, and the number of remaining seats
 print(f"Total seats: {openspace.total_seats()}")

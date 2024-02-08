@@ -1,11 +1,9 @@
 import pandas as pd
 
 def load_colleagues(filepath):
-    df = pd.read_excel(filepath)
+    with open(filepath, 'r') as file:
+        lines = file.readlines()
     colleagues = []
-    for _, row in df.iterrows():
-        name = row['Name']
-        whitelist = row['Whitelist'].split(',') if not pd.isna(row['Whitelist']) else []
-        blacklist = row['Blacklist'].split(',') if not pd.isna(row['Blacklist']) else []
-        colleagues.append((name, whitelist, blacklist))
+    for line in lines:
+        colleagues.append(line.strip().split(','))
     return colleagues

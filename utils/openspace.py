@@ -44,6 +44,16 @@ class Openspace:
             if table.has_free_spot():
                 table.assign_seat(name)
                 return
+    def remove_colleague(self, name):
+        """
+        Removes a colleague from the open space.
+
+        Args:
+            name (str): The name of the colleague to remove.
+        """
+        for table in self.tables:
+            if table.remove_occupant(name):
+                return
 
     def add_table(self, capacity):
         """

@@ -86,3 +86,18 @@ class Table:
         """
         self.seats.append(Seat())
         self.capacity += 1
+    def remove_occupant(self, name):
+        """
+        Removes an occupant from the table.
+
+        Args:
+            name (str): The name of the occupant to remove.
+
+        Returns:
+            bool: True if the occupant was removed, False otherwise.
+        """
+        for seat in self.seats:
+            if seat.occupant == name:
+                seat.remove_occupant()
+                return True
+        return False

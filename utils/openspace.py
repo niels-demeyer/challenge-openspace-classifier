@@ -1,5 +1,6 @@
 from .table import Table
 import random
+import json
 
 class Openspace:
     """
@@ -130,3 +131,35 @@ class Openspace:
                 if seat.occupant == name:
                     return True
         return False
+    def add_colleagues_from_json(self, filename):
+        """
+        Adds colleagues from a JSON file to the open space.
+
+        Args:
+            filename (str): The name of the JSON file.
+        """
+        with open(filename, 'r') as file:
+            data = json.load(file)
+        colleagues = data.get('colleagues')
+        if colleagues is None:
+            print("No colleagues to add.")
+            return
+        for name in colleagues:
+            if not self.is_colleague_in_openspace(name):
+                self.add_colleague(name)
+
+    def remove_colleagues_from_json(self, filename):
+        """
+        Removes colleagues from a JSON file from the open space.
+
+        Args:
+            filename (str): The name of the JSON file.
+        """
+        with open(filename, 'r') as file:
+            data = json.load(file)
+        colleagues_to_remove = data.get('colleagues_to_remove')
+        if colleagues_to_remove is None:
+            print("No colleagues to remove.")
+            return
+        for name in colleagues_to_remove:
+            self.remove_colleague(name)

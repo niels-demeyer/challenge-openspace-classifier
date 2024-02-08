@@ -1,4 +1,6 @@
 {
   "number_of_tables": 7,
-  "table_capacity": 4
+  "table_capacity": 4,
+  "colleagues": ["John Doe", "Jane Doe", "Alice", "Bob"],
+  "colleagues_to_remove": ["Niels"]
 }

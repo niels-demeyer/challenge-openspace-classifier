@@ -11,14 +11,12 @@ colleagues = load_colleagues('new_colleagues.txt')
 
 # Create an openspace and organize the colleagues
 openspace = Openspace(number_of_tables=config['number_of_tables'], table_capacity=config['table_capacity'])
+# Check the capacity
 openspace.check_capacity()
-openspace.organize(colleagues)
-
-openspace.add_colleague('John Doe')
-openspace.add_colleague('Jane Doe')
-openspace.organize(colleagues)
-# openspace.display()
-openspace.remove_colleague('John Doe')
+# Add or remove the colleagues from the json file
+openspace.add_colleagues_from_json('config.json')
+openspace.remove_colleagues_from_json('config.json')
+# Organize the colleagues
 openspace.organize(colleagues)
 
 # Display the results

@@ -17,10 +17,9 @@ openspace.organize(colleagues)
 openspace.add_colleague('John Doe')
 openspace.add_colleague('Jane Doe')
 openspace.organize(colleagues)
-openspace.display()
+# openspace.display()
 openspace.remove_colleague('John Doe')
 openspace.organize(colleagues)
-openspace.display()
 
 # Display the results
 openspace.display()

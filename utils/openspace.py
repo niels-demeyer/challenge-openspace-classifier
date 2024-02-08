@@ -18,21 +18,6 @@ class Openspace:
         self.tables = [Table(table_capacity) for _ in range(number_of_tables)]
         self.number_of_tables = number_of_tables
 
-    def organize(self, colleagues):
-        """
-        Organizes colleagues into tables. The colleagues are shuffled and then
-        assigned to tables in the order they appear in the shuffled list.
-
-        Args:
-            colleagues (list): A list of colleague names.
-        """
-        random.shuffle(colleagues)
-        for name in colleagues:
-            for table in self.tables:
-                if table.has_free_spot():
-                    table.assign_seat(name)
-                    break
-
     def add_colleague(self, name):
         """
         Adds a colleague to the first available spot in the open space.
@@ -114,3 +99,34 @@ class Openspace:
             print("Notice: There are more seats than people.")
         else:
             print("Just right: There are enough seats for everyone.")
+    def organize(self, colleagues):
+        """
+        Organizes colleagues into tables. The colleagues are shuffled and then
+        assigned to tables in the order they appear in the shuffled list.
+
+        Args:
+            colleagues (list): A list of colleague names.
+        """
+        random.shuffle(colleagues)
+        for name in colleagues:
+            if not self.is_colleague_in_openspace(name):
+                for table in self.tables:
+                    if table.has_free_spot():
+                        table.assign_seat(name)
+                        break
+
+    def is_colleague_in_openspace(self, name):
+        """
+        Checks if a colleague is already in the open space.
+
+        Args:
+            name (str): The name of the colleague.
+
+        Returns:
+            bool: True if the colleague is in the open space, False otherwise.
+        """
+        for table in self.tables:
+            for seat in table.seats:
+                if seat.occupant == name:
+                    return True
+        return False

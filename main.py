@@ -1,7 +1,7 @@
 from utils.openspace import Openspace
 from utils.file_utils import load_colleagues
 from utils.file_utils import load_json
-
+from utils.file_utils import save_to_json
 
 config = load_json("config.json")
 # Load the colleagues from the excel file
@@ -16,6 +16,10 @@ openspace.check_capacity()
 openspace.organize(colleagues)
 # Display the results
 openspace.display()
+
+# Save the openspace to a JSON file
+data = openspace.to_dict()
+save_to_json(data, "openspace.json")
 
 
 # Print the total number of seats, the total number of people, and the number of remaining seats

@@ -86,6 +86,16 @@ class Openspace:
             for seat in table.seats:
                 print(f"  Seat: {'Free' if seat.free else seat.occupant}")
 
+    def to_dict(self):
+        """
+        Returns a dictionary representation of the Openspace object.
+        """
+        result = {
+            "number_of_tables": self.number_of_tables,
+            "tables": [table.to_dict() for table in self.tables],
+        }
+        return result
+
     def check_capacity(self):
         """
         Checks the number of people and seats and prints a message accordingly.

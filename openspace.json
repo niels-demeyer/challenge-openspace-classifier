@@ -1,0 +1,68 @@
+{
+  "number_of_tables": 7,
+  "tables": [
+    {
+      "capacity": 4,
+      "seats": [
+        { "free": true, "occupant": null },
+        { "free": false, "occupant": ["Miguel"] },
+        { "free": false, "occupant": ["Viktor"] },
+        { "free": false, "occupant": ["Fabienne"] }
+      ]
+    },
+    {
+      "capacity": 4,
+      "seats": [
+        { "free": false, "occupant": ["Nasrin"] },
+        { "free": false, "occupant": ["Yanina"] },
+        { "free": false, "occupant": ["MR. lonely"] },
+        { "free": false, "occupant": ["Alfiya"] }
+      ]
+    },
+    {
+      "capacity": 4,
+      "seats": [
+        { "free": false, "occupant": ["Karel"] },
+        { "free": false, "occupant": ["Em"] },
+        { "free": false, "occupant": ["Afaf"] },
+        { "free": false, "occupant": ["Mahsa"] }
+      ]
+    },
+    {
+      "capacity": 4,
+      "seats": [
+        { "free": false, "occupant": ["Ivan"] },
+        { "free": false, "occupant": ["Geraldine"] },
+        { "free": false, "occupant": ["Danil"] },
+        { "free": false, "occupant": ["Alice"] }
+      ]
+    },
+    {
+      "capacity": 4,
+      "seats": [
+        { "free": false, "occupant": ["Caroline"] },
+        { "free": false, "occupant": ["Daryoush"] },
+        { "free": false, "occupant": ["Alexander"] },
+        { "free": false, "occupant": ["Andrea"] }
+      ]
+    },
+    {
+      "capacity": 4,
+      "seats": [
+        { "free": false, "occupant": ["Nathalie"] },
+        { "free": false, "occupant": ["Niels"] },
+        { "free": false, "occupant": ["Ariana"] },
+        { "free": false, "occupant": ["Jens"] }
+      ]
+    },
+    {
+      "capacity": 4,
+      "seats": [
+        { "free": false, "occupant": ["Sweta"] },
+        { "free": false, "occupant": ["Gerrit"] },
+        { "free": true, "occupant": null },
+        { "free": true, "occupant": null }
+      ]
+    }
+  ]
+}

@@ -99,3 +99,15 @@ class Table:
                 seat.remove_occupant()
                 return True
         return False
+
+    def to_dict(self):
+        """
+        Returns a dictionary representation of the Table object.
+        """
+        result = {
+            "capacity": self.capacity,
+            "seats": [
+                {"free": seat.free, "occupant": seat.occupant} for seat in self.seats
+            ],
+        }
+        return result

@@ -13,3 +13,5 @@ Create an algorithm that randomly assign people to a spot in the openspace.
 ```python
 python main.py
 ```
+### Result
+Check out the result in the outpu.json file!

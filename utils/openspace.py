@@ -114,6 +114,8 @@ class Openspace:
                     if table.has_free_spot():
                         table.assign_seat(name)
                         break
+        # Redistribute colleagues after adding all of them
+        self.redistribute_colleagues()
 
     def is_colleague_in_openspace(self, name: str) -> bool:
         """
@@ -127,3 +129,35 @@ class Openspace:
                 if seat.occupant == name:
                     return True
         return False
+
+    def redistribute_colleagues(self):
+        """
+        Redistributes colleagues to ensure that no table has only one person.
+        """
+        # Find all tables with only one person
+        tables_with_one_person = [
+            table
+            for table in self.tables
+            if table.left_capacity() == table.capacity - 1 and table.capacity > 1
+        ]
+
+        # If there are no tables with only one person, return
+        if not tables_with_one_person:
+            return
+
+        # For each table with only one person
+        for table_with_one_person in tables_with_one_person:
+            # Find a table with more than one person
+            for table in self.tables:
+                if table.left_capacity() < table.capacity - 1:
+                    # Find a person in the table
+                    for seat in table.seats:
+                        if not seat.free:
+                            # Remove the person from the table
+                            person_to_move = seat.remove_occupant()
+                            # Add the person to the table with only one person
+                            table_with_one_person.assign_seat(person_to_move)
+                            break
+                    # If a person was moved, break the loop
+                    if person_to_move:
+                        break

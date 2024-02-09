@@ -35,19 +35,3 @@ def load_json(filepath):
     with open(filepath, "r") as file:
         data = json.load(file)
     return data
-
-
-def compare_json_with_new_colleagues(config):
-    config = load_json("config.json")
-    colleagues = load_colleagues("new_colleagues.txt")
-    new_colleagues = [
-        colleague
-        for colleague in colleagues
-        if colleague not in config["colleagues_to_remove"]
-    ]
-    new_colleagues += [
-        colleague
-        for colleague in config["colleagues"]
-        if colleague not in new_colleagues
-    ]
-    return new_colleagues

@@ -29,3 +29,14 @@ def load_json(filepath: str) -> dict:
     with open(filepath, "r") as file:
         data = json.load(file)
     return data
+
+
+def save_to_json(data: dict, filepath: str):
+    """
+    Function that writes a dictionary to a JSON file.
+
+    :param data: A dictionary with the data to be written to the JSON file.
+    :param filepath: A string that represents the path to the JSON file.
+    """
+    with open(filepath, "w") as file:
+        json.dump(data, file)

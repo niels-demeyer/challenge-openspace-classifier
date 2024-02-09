@@ -2,6 +2,7 @@ from .table import Table
 import random
 import json
 
+
 class Openspace:
     """
     The Openspace class represents an open space with a number of tables.
@@ -19,6 +20,9 @@ class Openspace:
         self.tables = [Table(table_capacity) for _ in range(number_of_tables)]
         self.number_of_tables = number_of_tables
 
+    def __str__(self):
+        return f"Openspace with {self.number_of_tables} tables and {self.total_seats()} total seats."
+
     def add_colleague(self, name):
         """
         Adds a colleague to the first available spot in the open space.
@@ -30,6 +34,7 @@ class Openspace:
             if table.has_free_spot():
                 table.assign_seat(name)
                 return
+
     def remove_colleague(self, name):
         """
         Removes a colleague from the open space.
@@ -87,6 +92,7 @@ class Openspace:
             print(f"Table {i}:")
             for seat in table.seats:
                 print(f"  Seat: {'Free' if seat.free else seat.occupant}")
+
     def check_capacity(self):
         """
         Checks the number of people and seats and prints a message accordingly.
@@ -100,6 +106,7 @@ class Openspace:
             print("Notice: There are more seats than people.")
         else:
             print("Just right: There are enough seats for everyone.")
+
     def organize(self, colleagues):
         """
         Organizes colleagues into tables. The colleagues are shuffled and then
@@ -131,6 +138,7 @@ class Openspace:
                 if seat.occupant == name:
                     return True
         return False
+
     def add_colleagues_from_json(self, filename):
         """
         Adds colleagues from a JSON file to the open space.
@@ -138,9 +146,9 @@ class Openspace:
         Args:
             filename (str): The name of the JSON file.
         """
-        with open(filename, 'r') as file:
+        with open(filename, "r") as file:
             data = json.load(file)
-        colleagues = data.get('colleagues')
+        colleagues = data.get("colleagues")
         if colleagues is None:
             print("No colleagues to add.")
             return
@@ -155,9 +163,9 @@ class Openspace:
         Args:
             filename (str): The name of the JSON file.
         """
-        with open(filename, 'r') as file:
+        with open(filename, "r") as file:
             data = json.load(file)
-        colleagues_to_remove = data.get('colleagues_to_remove')
+        colleagues_to_remove = data.get("colleagues_to_remove")
         if colleagues_to_remove is None:
             print("No colleagues to remove.")
             return

@@ -2,14 +2,16 @@ class Seat:
     """
     The Seat class represents a seat in a table.
     """
+
     def __init__(self):
         """
         Initializes a new instance of the Seat class.
         """
         self.free = True
         self.occupant = None
-        self.whitelist = []
-        self.blacklist = []
+
+    def __str__(self):
+        return f"Seat occupied by {self.occupant}" if not self.free else "Seat is free"
 
     def set_occupant(self, name):
         """
@@ -35,11 +37,11 @@ class Seat:
         return occupant
 
 
-
 class Table:
     """
     The Table class represents a table with a certain capacity.
     """
+
     def __init__(self, capacity):
         """
         Initializes a new instance of the Table class.
@@ -49,6 +51,9 @@ class Table:
         """
         self.capacity = capacity
         self.seats = [Seat() for _ in range(capacity)]
+
+    def __str__(self):
+        return f"Table with capacity {self.capacity}, {self.left_capacity()} seats left"
 
     def has_free_spot(self):
         """
@@ -86,6 +91,7 @@ class Table:
         """
         self.seats.append(Seat())
         self.capacity += 1
+
     def remove_occupant(self, name):
         """
         Removes an occupant from the table.
